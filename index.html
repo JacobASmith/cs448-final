@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Deserts</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        #mapContainer {
+            padding: 10%;
+            padding-top:0%;
+            padding-bottom: 0%;
+            min-width: 1200px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            min-width: 990px;
+            margin-bottom: 0;
+        }
+
+        .test-class {
+            stroke: "blue";
+            fill: "red";
+            opacity: 0;
+        }
+
+        .toggle-button {
+            display: flex;
+            margin-left: auto;
+            margin-right: 5%;
+            margin-top: 0;
+            align-items: center;
+            justify-content: space-between;
+            width: 100px;
+            height: 30px;
+            background-color: lightskyblue;
+            border-radius: 20px;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-button span {
+            width: 70px;
+            height: 20px;
+            background-color: white;
+            border-radius: 15px;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            transition: left 0.3s, background-color 0.3s;
+            text-indent: 20px;
+        }
+
+        .toggle-button span:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: lightskyblue;
+            transition: left 0.3s, background-color 0.3s;
+        }
+
+        .rural_on {
+            background-color: #FEDF93;
+        }
+
+        .rural_on span {
+            left: 35px;
+            width: 60px;
+            text-indent: 5px;
+
+        }
+
+        .rural_on span:before {
+            left: 42px;
+            background-color: #FEDF93;
+        }
+
+        #color-legend text {
+            font-size: 10px;
+        }
+
+        svg#legend {
+            padding-left: 20%;
+            padding-right: 20%;
+            /* margin-right: 10%; */
+        }
+        svg#spacer {
+            height: 10px;
+        }
+        .article {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+        #caption1 {
+            padding-left: 15%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <svg id="legend"></svg> -->
+    <h1>Food Deserts</h1>
+
+    <div class="article">
+        <p>Food deserts are regions where low-income individuals have limited access to fresh food. Typically food deserts are lacking in grocery stores which provide access to fruits and vegetables at affordable prices, leading low-income individuals to rely on fast-food or convenience stores for most of their meals. This reliance is correlated with poor health outcomes from substandard nutrition. Food deserts are not just a peculiarity of geographic food distribution, they are strongly related to socioeconomic status disproportionately impacting demographic minority groups.</p>
+        <p>Let’s better understand what a food desert is and where they can be found. A food desert is an area of low access which may fall into three tiers of access based on distance. According to the U.S Department of Agriculture, a low access areas are ”Low-income census tracts where a significant number (at least 500 people) or share (at least 33 percent) of the population is greater than one-half mile from the nearest supermarket, supercenter, or large grocery store for an urban area or greater than 10 miles for a rural area.” for the loosest category up to 1 mile in urban areas and 20 miles in rural areas in the worst case. </p>
+        <p>This distinction in definition for urban and rural food deserts by geographic distribution point to key differences in terms of access to fresh food. While both urban and rural food deserts are connected to socioeconomic challenges, they are distinct in the spatial impact. Urban food deserts are typically defined as regions where people are located more than half a mile to a mile from the nearest large grocery store, making the issue one of convenience and accessibility versus non-healthy alternatives. Urban food deserts often occur in areas where there is a significant minority population, but the number of grocery stores is insufficient to meet the demand.</p>
+        <p>In contrast, rural food deserts are characterized by the sheer magnitude of distances away from a major grocery store. The issue here isn’t necessarily the density of stores, given already sparse populations, but rather that large distance between homes and stores. This distance is especially challenging given the general lack of public transportation options in rural regions, making it difficult for residents to travel the long distances to access fresh food. Additionally, in rural areas, economic opportunities are often more limited, and many people rely on personal vehicles to access services, which may not be feasible for low-income families.</p>
+    </div>
+
+    <div id="mapContainer">
+        <div class="toggle-button" id="toggleButton">
+            <!-- <span></span> -->
+            <span id="toggleLabel">Urban</span>
+        </div>
+        <div class="container">
+        </div>
+        <div class="tooltip" id="tooltip"></div>
+        <svg id="spacer"></svg>
+        <svg id="legend"></svg>
+        <p id="caption1"><small>Try clicking on counties to switch between Urban and Rural data. What desparities are present in your county?</small></p>
+    </div>
+
+    <div class="article">
+        <p>The geographic distribution of food deserts reveals a complex pattern, where both urban and rural communities face access issues, but these issues manifest differently based on factors such as population density, transportation infrastructure, and demographic factors. What’s clear is that food deserts are deeply intertwined with systemic inequalities in income, transportation, and urban planning. </p>
+        <p>The map above shows that the vast majority of the populated regions of the United States have a greater share of the Urban population living in a food desert than the Rural population county by county. High impact policy would target these Urban food deserts but to be effective, it is essential to understand who makes up residents in these food low access regions.</p>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script type="module" src="index.js"></script>
+
+</body>
+
+</html>
