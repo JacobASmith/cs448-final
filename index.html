@@ -11,16 +11,18 @@
             margin: 0;
             padding: 0;
         }
-
         h1 {
             text-align: center;
         }
-        #mapContainer {
-            padding: 10%;
-            padding-top:0%;
-            padding-bottom: 0%;
-            min-width: 1200px;
+        #mapContainer, #scatterplot {
+            margin: 0 auto; /* Centers containers horizontally */
+            display: block;
+            width: 80%; /* Adjust width as needed */
+            max-width: 1200px; /* Optional: limit maximum width */
+            align-items: center;
+            justify-content: center;
         }
+
         .container {
             display: flex;
             justify-content: center;
@@ -34,6 +36,20 @@
             stroke: "blue";
             fill: "red";
             opacity: 0;
+        }
+        #tooltip_george {
+            position: absolute;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            pointer-events: none; /* Prevent interaction with the tooltip */
+            display: none; /* Hide initially */
+            font-size: 12px;
+            color: #333;
+            line-height: 1.5;
+            z-index: 1000; /* Ensure tooltip appears above other elements */
         }
 
         .toggle-button {
@@ -147,7 +163,42 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <script type="module" src="index.js"></script>
-
+    <h1>How does food desert affect different racial groups in urban and rural areas?</h1>
+    <div class="article">
+        <p>
+            The previous geospatial analysis tells us that food deserts are particularly prevalent in urban areas, 
+            but does belonging to different racial groups in these areas affect their access to fresh food? 
+            To answer this question, we can compare the low food acess population for different racial groups in urban and rural areas.
+            Having such an analysis would help policy makers to make targeted interventions to address the food insecurity problem in these areas for different racial groups.
+        </p>
+        <p>
+            The scatter plot below shows the percentage of low food access population for different racial groups in different states. 
+            The y-axis represents the percentage of low food access population, normalized by the total population of each state and racial group. 
+            The x-axis represents the percentage of urban population in each state and racial group. 
+            Each point on the scatter plot represents a specific racial group for a specific state. The size of the point corresponds to the absolute low access population for that racial group in that state.
+            The color of each point represents the racial group, including White (blue), Black (orange), Asian (green), and Hispanic (purple).
+            The legend on the right side of the scatter plot shows the color coding for each racial group.
+        </p>
+    </div>
+    <svg id="scatterplot" width="800" height="600"></svg>
+    <div id="tooltip_george"></div>
+    <script  src="./vis.js"></script>
+    <div class="article">
+        <p>
+            The above visualization shows a clear positive correlation between the percentage of low food access population and the percentage of urban population in each state and racial group.
+            This reaffirms the first visualization's conclusion that urban food deserts are more prevalent than rural food deserts in the United States. 
+            Interestingly, the visualization also shows that the percentage of low food access population varies drastically across different racial groups even in the same state. 
+            This can be seen by hovering over each point on the scatter plot, which displays a tooltip with a breakdown of racial groups' percentage of low food access population in that state.
+            This variation suggests that when making policies to address food insecurity on the national level, it is important to target different racial groups based on their unique needs and circumstances.
+        </p>
+        <p>
+            Furthermore, the visualization also reveals a consistent different in terms of the percent of urban to rural population in each state's racial groups. 
+            In particular, on average, the minority groups (Black, Asian, and Hispanic) have a higher percentage of urban population in the states they live in compared to the majority groups (White). 
+            This thesis suggests that the urban-rural divide in food deserts is not only a geographic one, but also a socioeconomic one, 
+            and that the policies and programs that target to address the urban food insecurity problems should be tailored to the minority racial groups, such as providing affordable food access, 
+            increase cultural food opportunities, and support community-based food security options such as farmer's markets, restaurants, and community gardens.
+        </p>
+    </div>
 </body>
 
 </html>
