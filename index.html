@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Deserts</title>
+    <link rel="stylesheet" type="text/css" href="./inspector.css">
 
     <style>
         body {
@@ -13,6 +14,17 @@
         }
         h1 {
             text-align: center;
+        }
+        h3 {
+            text-align: center;
+        }
+        #bubble-container {
+            margin: 0 auto;
+            display: block;
+            width: 100%;
+            max-width: 1400px;
+            align-items: center;
+            justify-content: center;
         }
         #mapContainer, #scatterplot {
             margin: 0 auto; /* Centers containers horizontally */
@@ -199,6 +211,45 @@
             increase cultural food opportunities, and support community-based food security options such as farmer's markets, restaurants, and community gardens.
         </p>
     </div>
+
+
+    <h1>How Effective is SNAP at Addressing Food Access in High-Poverty Areas?</h1>
+    <h3> Food Desert Status vs. Poverty Rate by County</h3>
+    <div class="article">
+        <p>
+            <p>The Supplemental Nutrition Assistance Program (SNAP) represents one of America's primary defenses against food insecurity, providing crucial financial assistance to millions of low-income households. However, our visualization reveals a complex and sometimes counterintuitive relationship between SNAP participation and food desert status. The distribution of counties across poverty rates shows that areas designated as food deserts often have higher SNAP participation rates, indicated by darker blue shading in our visualization, particularly in regions with poverty rates between 20% and 40%.</p>
+            <p>The size of each bubble in our visualization, representing county population, adds another crucial dimension to understanding food access challenges. Larger urban counties frequently appear as food deserts despite having high SNAP participation rates, suggesting that financial assistance alone cannot overcome structural barriers to food access. This pattern is particularly evident in California's urban centers, where we observe clusters of large, dark blue bubbles in both food desert and non-food desert categories.
+            In urban areas, the paradox becomes even more striking. Counties with high population density often show high SNAP participation rates (darker blue coloring) yet remain classified as food deserts. This contradiction challenges the assumption that urban areas, with their presumably better infrastructure and higher population density, naturally provide better food access. Instead, it suggests that urban food deserts persist due to complex factors beyond mere distance to grocery stores, including transportation barriers, economic disinvestment, and retail market dynamics.
+            Smaller counties, represented by smaller bubbles in our visualization, tell a different but equally concerning story. These areas often display lighter blue coloring, indicating lower SNAP participation rates, regardless of their food desert status.</p> <p>This pattern raises important questions about program accessibility and stigma in rural communities. Are eligible residents facing barriers to enrollment? Do smaller communities face unique challenges in implementing and utilizing SNAP benefits?</p>    
+        </p>
+    </div>
+    <div id="bubble-container"></div>
+        <script type="module">
+            import define from "./bubble.js";
+            import {Runtime, Inspector} from "./runtime.js";
+            const runtime = new Runtime();
+            const main = runtime.module(define, Inspector.into(document.querySelector("#bubble-container")));
+        </script>
+    <!-- <div class="article">
+        <p>Your explanatory text here</p>
+    </div> -->
+    <div id="bubble-container"></div>
+    <div class="article">
+        <p>
+            <p>Examining the distribution along the poverty rate axis reveals another crucial pattern: as poverty rates increase, we see a higher concentration of counties classified as food deserts. However, this relationship isn't purely linear. Some counties with relatively lower poverty rates still qualify as food deserts, while others with higher poverty rates do not, suggesting that local factors beyond economic indicators play a crucial role in determining food access.
+            The implications of these patterns extend beyond immediate food access. Communities where high SNAP participation coexists with food desert status may face compounded health challenges. While SNAP benefits provide the means to purchase food, the limited availability of fresh, nutritious options in food deserts may force residents to rely on less healthy alternatives, potentially contributing to poor health outcomes.
+            </p>
+            <br>
+            <p>The visualization helps us understand both the successes and limitations of SNAP as a food security program. The high participation rates in many food desert areas indicate that the program is reaching many communities in need. However, the persistent classification of these areas as food deserts suggests that SNAP benefits alone cannot overcome structural barriers to food access.
+            Our analysis reveals that addressing food desert challenges requires a comprehensive, multi-faceted approach that goes beyond simple SNAP benefit distribution. The visualization demonstrates that even areas with high SNAP participation often remain classified as food deserts, pointing to deeper structural issues that require targeted solutions. To effectively combat food access inequities, communities need coordinated interventions 
+            across four key areas: enhanced infrastructure development through public-private partnerships and community food hubs, improved transportation solutions including last-mile delivery options, strengthened SNAP program outreach particularly in rural areas, and robust community-based initiatives such as farmers' markets and nutrition education programs. These interventions, when implemented together, can create sustainable food environments 
+            that better serve all community members, particularly in areas where high SNAP participation alone hasn't resolved persistent food access challenges.
+            </p>
+            
+            <p>
+            The patterns revealed in our visualization underscore the need for a multi-faceted approach to addressing food access challenges. While SNAP provides crucial assistance, lasting solutions must address the underlying structural issues that create and perpetuate food deserts. This requires coordinated effort across government agencies, private sector partners, and community organizations to create sustainable, equitable food systems that serve all communities effectively.</p>
+            </p>
+        </div>
 </body>
 
 </html>
