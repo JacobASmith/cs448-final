@@ -92,6 +92,7 @@ function _title(html) {
   `
 }
 
+
 function _11(d3,parsedData,stateSelect,areaFilter,filteredData,jitter)
 {
   // Set dimensions
